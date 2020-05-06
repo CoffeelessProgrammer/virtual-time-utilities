@@ -1,0 +1,21 @@
+<mat-toolbar color="primary" class="sticky-navbar">
+    <mat-toolbar-row class="d-flex">
+
+        <div class="pr-3">
+            <span>Virtual Time Utilities</span>
+        </div>
+        <div class="flex-fill d-flex justify-content-between">
+            <div>
+                <!-- Absolute Path -->
+                <!-- <a mat-button routerLink="/home">Test</a> -->
+                
+                <!-- Relative Paths -->
+                <a mat-button [routerLink]="['speed-factor']">Speed Factor</a>
+            </div>
+            <div>
+                <a mat-button [routerLink]="['login']">Login</a>
+            </div>
+        </div>
+        
+    </mat-toolbar-row>
+</mat-toolbar>

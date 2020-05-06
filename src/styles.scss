@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/utilities";
+
+@import "assets/styles/my-reset";
+
+html, body { height: 100%; }
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.bg1 {
+    background-color: olive;
+}
+
+.bg2 {
+    background-color: rebeccapurple;
+}
+
+.bg3 {
+    background-color: chocolate;
+}
+
+.bg4 {
+    background-color: darkcyan;
+}
+
+.bg5 {
+    background-color: orchid;
+}
