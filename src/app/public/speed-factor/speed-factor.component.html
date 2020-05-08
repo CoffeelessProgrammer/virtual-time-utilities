@@ -1,5 +1,112 @@
-<div class="row pt-3">
+<div class="row pt-5">
     <div class="col">
-        <h1>hello</h1>
+
+        <h1 class="text-center">Speed Factor Calculator</h1>
+        <p class="text-center mb-5">Date Format: MM/DD/YYYY</p>
+
+        <form [formGroup]="speedFactorForm" class="container-fluid">
+
+            <div class="row justify-content-center">
+                <div class="col col-auto">
+
+                    <h2>Real Time Period</h2>
+
+                    <div formGroupName="real_start">
+                        <mat-form-field>
+                            <mat-label>Real Start Date</mat-label>
+                            <input #realStartDate matInput [matDatepicker]="picker1" formControlName="date">
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker touchUi #picker1></mat-datepicker>
+                        </mat-form-field>
+            
+                        <mat-form-field>
+                            <mat-label>Real Start Time</mat-label>
+                            <input #realStartTime matInput type="time" formControlName="time"
+                                (blur)="updateRealStartDate(realStartDate.value, realStartTime.value)">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-auto">
+
+                    <div formGroupName="real_end">
+                        <mat-form-field>
+                            <mat-label>Real End Date</mat-label>
+                            <input #realEndDate matInput [matDatepicker]="picker2" formControlName="date">
+                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                            <mat-datepicker #picker2></mat-datepicker>
+                        </mat-form-field>
+            
+                        <mat-form-field>
+                            <mat-label>Real End Time</mat-label>
+                            <input #realEndTime matInput type="time" formControlName="time"
+                                (blur)="updateRealEndDate(realEndDate.value, realEndTime.value)">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-auto">
+
+                    <h2 class="text-right mt-3">Virtual Time Period</h2>
+
+                    <div formGroupName="virtual_start">
+                        <mat-form-field>
+                            <mat-label>Virtual Start Date</mat-label>
+                            <input #virtualStartDate matInput [matDatepicker]="picker3" formControlName="date">
+                            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                            <mat-datepicker #picker3></mat-datepicker>
+                        </mat-form-field>
+            
+                        <mat-form-field>
+                            <mat-label>Virtual Start Time</mat-label>
+                            <input #virtualStartTime matInput type="time" formControlName="time"
+                                (blur)="updateVirtualStartDate(virtualStartDate.value, virtualStartTime.value)">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-auto">
+
+                    <div formGroupName="virtual_target">
+                        <mat-form-field>
+                            <mat-label>Virtual Target Date</mat-label>
+                            <input #virtualTargetDate matInput [matDatepicker]="picker4" formControlName="date">
+                            <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                            <mat-datepicker #picker4></mat-datepicker>
+                        </mat-form-field>
+            
+                        <mat-form-field>
+                            <mat-label>Virtual Target Time</mat-label>
+                            <input #virtualTargetTime matInput type="time" formControlName="time"
+                                (blur)="updateVirtualTargetDate(virtualTargetDate.value, virtualTargetTime.value)">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-3 mb-5">
+
+                <div class="col-auto d-flex justify-content-center">
+                    <h1 class="text-center mb-4">Speed Factor: {{ speedFactor }}</h1>
+                </div>
+
+                <div class="w-100"></div>
+
+                <div class="col-auto mb-3">
+                    <button (click)="calculateSpeedFactor()" mat-raised-button color="primary">Calculate</button>
+                </div>
+
+            </div>
+
+        </form>
+
+        <!-- <p class="py-3">{{ speedFactorForm.value | json }}</p> -->
+
     </div>
 </div>
