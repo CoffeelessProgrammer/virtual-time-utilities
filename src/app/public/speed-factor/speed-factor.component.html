@@ -1,129 +1,141 @@
 <div class="row pt-5">
-    <div class="col">
+    <div class="col-12">
 
         <h1 class="text-center">Speed Factor Calculator</h1>
         <p class="text-center mb-5">Date Format: MM/DD/YYYY</p>
 
+        <!----------------------------------------------------------------------------->
+
         <form [formGroup]="speedFactorForm" class="container-fluid">
+            <div class="row">
 
-            <div class="row justify-content-center">
-                <div class="col col-auto">
-
-                    <h2 class="ml-3 ml-sm-0">Real Time Period</h2>
-                    <h3 class="text-center ml-sm-5 text-sm-left">Real Start</h3>
+                <!-- Contains real time period information -->
+                <div class="col-12 col-sm-6 col-md-5 offset-md-1 col-lg-4 offset-lg-2">
+                    
+                    <h2 class="ml-3 text-md-center">Real Time Period</h2>
+                    
+                    <h3 class="text-center ml-md-3 text-md-left">Real Start</h3>
 
                     <div class="container-fluid" formGroupName="real_start">
                         <div class="row no-gutters">
-                            <mat-form-field class="col col-sm-6">
-                                <mat-label>Real Start Date</mat-label>
-                                <input #realStartDate matInput [matDatepicker]="picker1" formControlName="date">
-                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                                <mat-datepicker touchUi #picker1></mat-datepicker>
-                            </mat-form-field>
-                
-                            <mat-form-field class="col col-sm-6">
-                                <mat-label>Real Start Time</mat-label>
-                                <input #realStartTime matInput type="time" formControlName="time"
-                                    (blur)="updateRealStartDate(realStartDate.value, realStartTime.value)">
-                            </mat-form-field>
+                            <div class="col-12 col-md-6 col-lg-5 d-flex align-items-center">
+                                <mat-form-field class="w-100">
+                                    <mat-label>Start Date</mat-label>
+                                    <input #realStartDate matInput [matDatepicker]="picker1" formControlName="date">
+                                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                    <mat-datepicker touchUi #picker1></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-5 offset-lg-1 d-flex align-items-center">
+                                <mat-form-field class="w-100">
+                                    <mat-label>Start Time</mat-label>
+                                    <input #realStartTime matInput type="time" formControlName="time"
+                                        (blur)="updateRealStartDate(realStartDate.value, realStartTime.value)">
+                                </mat-form-field>
+                            </div>
                         </div>
                     </div>
 
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-auto">
-
-                    <h3 class="text-center ml-sm-5 text-sm-left">Real End</h3>
+                    <h3 class="text-center ml-md-3 text-md-left">Real End</h3>
 
                     <div class="container-fluid" formGroupName="real_end">
                         <div class="row no-gutters">
-                            <mat-form-field class="col col-sm-6">
-                                <mat-label>Real End Date</mat-label>
-                                <input #realEndDate matInput [matDatepicker]="picker2" formControlName="date">
-                                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                                <mat-datepicker touchUi #picker2></mat-datepicker>
-                            </mat-form-field>
-                
-                            <mat-form-field class="col col-sm-6">
-                                <mat-label>Real End Time</mat-label>
-                                <input #realEndTime matInput type="time" formControlName="time"
-                                    (blur)="updateRealEndDate(realEndDate.value, realEndTime.value)">
-                            </mat-form-field>
+                            <div class="col-12 col-md-6 col-lg-5 d-flex align-items-center">
+                                <mat-form-field class="w-100">
+                                    <mat-label>End Date</mat-label>
+                                    <input #realEndDate matInput [matDatepicker]="picker2" formControlName="date">
+                                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                    <mat-datepicker touchUi #picker2></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+            
+                            <div class="col-12 col-md-6 col-lg-5 offset-lg-1 d-flex align-items-center">
+                                <mat-form-field class="w-100">
+                                    <mat-label>End Time</mat-label>
+                                    <input #realEndTime matInput type="time" formControlName="time"
+                                        (blur)="updateRealEndDate(realEndDate.value, realEndTime.value)">
+                                </mat-form-field>
+                            </div>
                         </div>
                     </div>
 
                 </div>
-            </div>
 
-            <div class="row justify-content-center">
-                <div class="col-auto">
+                <!-- Contains virtual time period information -->
+                <div class="col-12 col-sm-6 col-md-5 col-lg-4">
 
-                    <h2 class="mt-3 ml-3 text-left text-sm-right ml-sm-0">Virtual Time Period</h2>
+                    <h2 class="ml-3 mt-5 mt-sm-0 text-sm-right mr-sm-3 text-md-center">Virtual Time Period</h2>
 
-                    <h3 class="text-center mr-sm-5 text-sm-right">Virtual Start</h3>
+                    <h3 class="text-center mr-md-3 text-md-right">Virtual Start</h3>
 
                     <div class="container-fluid" formGroupName="virtual_start">
                         <div class="row no-gutters">
-                            <mat-form-field class="col col-sm-6">
-                                <mat-label>Virtual Start Date</mat-label>
-                                <input #virtualStartDate matInput [matDatepicker]="picker3" formControlName="date">
-                                <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
-                                <mat-datepicker touchUi #picker3></mat-datepicker>
-                            </mat-form-field>
-                
-                            <mat-form-field class="col col-sm-6">
-                                <mat-label>Virtual Start Time</mat-label>
-                                <input #virtualStartTime matInput type="time" formControlName="time"
-                                    (blur)="updateVirtualStartDate(virtualStartDate.value, virtualStartTime.value)">
-                            </mat-form-field>
+                            <div class="col-12 col-md-6 col-lg-5 offset-lg-1 d-flex align-items-center">
+                                <mat-form-field class="w-100">
+                                    <mat-label>Start Date</mat-label>
+                                    <input #virtualStartDate matInput [matDatepicker]="picker3" formControlName="date">
+                                    <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                                    <mat-datepicker touchUi #picker3></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+            
+                            <div class="col-12 col-md-6 col-lg-5 offset-lg-1 d-flex align-items-center">
+                                <mat-form-field class="w-100">
+                                    <mat-label>Start Time</mat-label>
+                                    <input #virtualStartTime matInput type="time" formControlName="time"
+                                        (blur)="updateVirtualStartDate(virtualStartDate.value, virtualStartTime.value)">
+                                </mat-form-field>
+                            </div>
                         </div>
                     </div>
 
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-auto">
-
-                    <h3 class="text-center mr-sm-5 text-sm-right">Virtual Target</h3>
+                    <h3 class="text-center mr-md-3 text-md-right">Virtual Target</h3>
 
                     <div class="container-fluid" formGroupName="virtual_target">
                         <div class="row no-gutters">
-                            <mat-form-field class="col col-sm-6">
-                                <mat-label>Virtual Target Date</mat-label>
-                                <input #virtualTargetDate matInput [matDatepicker]="picker4" formControlName="date">
-                                <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
-                                <mat-datepicker touchUi #picker4></mat-datepicker>
-                            </mat-form-field>
-                
-                            <mat-form-field class="col col-sm-6">
-                                <mat-label>Virtual Target Time</mat-label>
-                                <input #virtualTargetTime matInput type="time" formControlName="time"
-                                    (blur)="updateVirtualTargetDate(virtualTargetDate.value, virtualTargetTime.value)">
-                            </mat-form-field>
+                            <div class="col-12 col-md-6 col-lg-5 offset-lg-1 d-flex align-items-center">
+                                <mat-form-field class="w-100">
+                                    <mat-label>Target Date</mat-label>
+                                    <input #virtualTargetDate matInput [matDatepicker]="picker4" formControlName="date">
+                                    <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                                    <mat-datepicker touchUi #picker4></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+            
+                            <div class="col-12 col-md-6 col-lg-5 offset-lg-1 d-flex align-items-center">
+                                <mat-form-field class="w-100">
+                                    <mat-label>Target Time</mat-label>
+                                    <input #virtualTargetTime matInput type="time" formControlName="time"
+                                        (blur)="updateVirtualTargetDate(virtualTargetDate.value, virtualTargetTime.value)">
+                                </mat-form-field>
+                            </div>
                         </div>
                     </div>
-
                 </div>
+
             </div>
+        </form>
+
+        <!----------------------------------------------------------------------------->
+
+        <div class="container-fluid">
 
             <div class="row justify-content-center mt-3 mb-5">
 
-                <div class="col-auto mb-4">
+                <div class="col-auto mt-5 mb-4">
                     <button (click)="calculateSpeedFactor()" mat-raised-button color="primary">Calculate</button>
                 </div>
 
                 <div class="w-100"></div>
 
                 <div class="col-auto d-flex justify-content-center">
-                    <h1 class="text-center mb-4">Speed Factor: {{ speedFactor }}</h1>
+                    <span class="speed-factor-result text-center mb-4">Speed Factor: {{ speedFactor }}</span>
                 </div>
 
             </div>
 
-        </form>
+        <div>
 
         <!-- <p class="py-3">{{ speedFactorForm.value | json }}</p> -->
 

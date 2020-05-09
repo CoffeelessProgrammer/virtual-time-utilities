@@ -68,7 +68,7 @@ export class SpeedFactorComponent implements OnInit, OnDestroy {
       this.speedFactorForm.value["virtual_target"]["date"]
     );
 
-    this.speedFactor = virtualTimeDuration/realTimeDuration;
+    this.speedFactor = this.round(virtualTimeDuration/realTimeDuration, 6);
   }
 
   // Methods to update time values -----------------------------------
@@ -133,6 +133,11 @@ export class SpeedFactorComponent implements OnInit, OnDestroy {
   timeDiffInMinutes(time1, time2) {
     let milliseconds = time2 - time1;
     return Math.floor(milliseconds/60000);
+  }
+
+  round(value, precision) {
+    let num = value+'e'+precision;
+    return Number(Math.round(Number.parseFloat(num))+'e-'+precision);
   }
 
 }
