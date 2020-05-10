@@ -167,7 +167,11 @@ export class SpeedFactorComponent implements OnInit, OnDestroy {
   buildDateTime(date: Date, time: String): Date {
     
     // Date validation
-    let newDate = date.toString() === "" ? new Date() : new Date(date);
+    let newDate: Date = new Date(date);
+
+    if(date.toString() === "" || isNaN(newDate.getTime())) {
+      newDate = new Date();
+    }
 
     // Time validation
     let split_time = time.split(':');
@@ -196,17 +200,19 @@ export class SpeedFactorComponent implements OnInit, OnDestroy {
   }
 
   copyToClipboard(val: string){
-    let selBox = document.createElement('textarea');
-    selBox.style.position = 'fixed';
-    selBox.style.left = '0';
-    selBox.style.top = '0';
-    selBox.style.opacity = '0';
-    selBox.value = val;
-    document.body.appendChild(selBox);
-    selBox.focus();
-    selBox.select();
+
+    let selectBox = document.createElement('textarea');
+    selectBox.style.position = 'fixed';
+    selectBox.style.left = '0';
+    selectBox.style.top = '0';
+    selectBox.style.opacity = '0';
+    selectBox.value = val;
+
+    document.body.appendChild(selectBox);
+    selectBox.focus();
+    selectBox.select();
     document.execCommand('copy');
-    document.body.removeChild(selBox);
+    document.body.removeChild(selectBox);
   }
 
 }
