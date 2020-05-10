@@ -54,6 +54,8 @@ export class SpeedFactorComponent implements OnInit, OnDestroy {
       })
     });
 
+    this.calculateSpeedFactor();
+
   }
 
   calculateSpeedFactor() {
@@ -74,35 +76,81 @@ export class SpeedFactorComponent implements OnInit, OnDestroy {
   // Methods to update time values -----------------------------------
 
   updateRealStartDate(dateInput: Date, timeInput: String) {
+
+    // If no time input was provided, revert to midnight
+    if(timeInput.length != 5) {
+      this.speedFactorForm.patchValue({
+        real_start: {
+          time: "00:00"
+        }
+      });
+    }
+
+    // Build and save the date object
     this.speedFactorForm.patchValue({
       real_start: {
         date: this.buildDateTime(dateInput, timeInput)
       }
     });
+
+    this.calculateSpeedFactor();
   }
 
   updateRealEndDate(dateInput: Date, timeInput: String) {
+
+    if(timeInput.length != 5) {
+      this.speedFactorForm.patchValue({
+        real_end: {
+          time: "00:00"
+        }
+      });
+    }
+
     this.speedFactorForm.patchValue({
       real_end: {
         date: this.buildDateTime(dateInput, timeInput)
       }
     });
+
+    this.calculateSpeedFactor();
   }
 
   updateVirtualStartDate(dateInput: Date, timeInput: String) {
+
+    if(timeInput.length != 5) {
+      this.speedFactorForm.patchValue({
+        virtual_start: {
+          time: "00:00"
+        }
+      });
+    }
+
     this.speedFactorForm.patchValue({
       virtual_start: {
         date: this.buildDateTime(dateInput, timeInput)
       }
     });
+
+    this.calculateSpeedFactor();
   }
 
   updateVirtualTargetDate(dateInput: Date, timeInput: String) {
+
+    if(timeInput.length != 5) {
+      this.speedFactorForm.patchValue({
+        virtual_target: {
+          time: "00:00"
+        }
+      });
+    }
+
     this.speedFactorForm.patchValue({
       virtual_target: {
         date: this.buildDateTime(dateInput, timeInput)
       }
     });
+
+    this.calculateSpeedFactor();
   }
 
   ngOnDestroy() {
@@ -118,14 +166,21 @@ export class SpeedFactorComponent implements OnInit, OnDestroy {
 
   buildDateTime(date: Date, time: String): Date {
     
-    let newDate = new Date(date);
+    // Date validation
+    let newDate = date.toString() === "" ? new Date() : new Date(date);
 
+    // Time validation
     let split_time = time.split(':');
+    let hours = isNaN(Number.parseInt(split_time[0])) ? 0 : Number.parseInt(split_time[0]);
+    let minutes = isNaN(Number.parseInt(split_time[1])) ? 0 : Number.parseInt(split_time[1]);
 
-    newDate.setHours(Number.parseInt(split_time[0]));
-    newDate.setMinutes(Number.parseInt(split_time[1]));
+    // Build date' time
+    newDate.setHours(hours);
+    newDate.setMinutes(minutes);
     newDate.setSeconds(0);
     newDate.setMilliseconds(0);
+
+    // console.log("Building...", newDate);
 
     return newDate;
   }
@@ -138,6 +193,20 @@ export class SpeedFactorComponent implements OnInit, OnDestroy {
   round(value, precision) {
     let num = value+'e'+precision;
     return Number(Math.round(Number.parseFloat(num))+'e-'+precision);
+  }
+
+  copyToClipboard(val: string){
+    let selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = val;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
   }
 
 }

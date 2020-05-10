@@ -1,6 +1,5 @@
 h1 {
     font-size: 2rem;
-    // font-weight: 300;
 }
 
 h2 {
@@ -15,7 +14,12 @@ h3 {
     font-weight: 400;
 }
 
-.speed-factor-result {
+.factor-result-heading {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.factor-result {
     font-size: 1.5rem;
     font-weight: 300;
 }
@@ -23,3 +27,9 @@ h3 {
 mat-label {
     font-size: 15px;
 }
+
+// .btn-clipboard {
+//     font-size: 1rem;
+//     font-weight: 400;
+//     padding: 0.5rem 2rem;
+// }

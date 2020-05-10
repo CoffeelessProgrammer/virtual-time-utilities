@@ -2,7 +2,7 @@
     <div class="col-12">
 
         <h1 class="text-center">Speed Factor Calculator</h1>
-        <p class="text-center mb-5">Date Format: MM/DD/YYYY</p>
+        <p class="text-center mb-4">Date Format: MM/DD/YYYY</p>
 
         <!----------------------------------------------------------------------------->
 
@@ -21,7 +21,8 @@
                             <div class="col-12 col-md-6 col-lg-5 d-flex align-items-center">
                                 <mat-form-field class="w-100">
                                     <mat-label>Start Date</mat-label>
-                                    <input #realStartDate matInput [matDatepicker]="picker1" formControlName="date">
+                                    <input #realStartDate matInput [matDatepicker]="picker1" formControlName="date"
+                                        (blur)="updateRealStartDate(realStartDate.value, realStartTime.value)">
                                     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                                     <mat-datepicker touchUi #picker1></mat-datepicker>
                                 </mat-form-field>
@@ -44,7 +45,8 @@
                             <div class="col-12 col-md-6 col-lg-5 d-flex align-items-center">
                                 <mat-form-field class="w-100">
                                     <mat-label>End Date</mat-label>
-                                    <input #realEndDate matInput [matDatepicker]="picker2" formControlName="date">
+                                    <input #realEndDate matInput [matDatepicker]="picker2" formControlName="date"
+                                        (blur)="updateRealEndDate(realEndDate.value, realEndTime.value)">
                                     <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                                     <mat-datepicker touchUi #picker2></mat-datepicker>
                                 </mat-form-field>
@@ -74,7 +76,8 @@
                             <div class="col-12 col-md-6 col-lg-5 offset-lg-1 d-flex align-items-center">
                                 <mat-form-field class="w-100">
                                     <mat-label>Start Date</mat-label>
-                                    <input #virtualStartDate matInput [matDatepicker]="picker3" formControlName="date">
+                                    <input #virtualStartDate matInput [matDatepicker]="picker3" formControlName="date"
+                                        (blur)="updateVirtualStartDate(virtualStartDate.value, virtualStartTime.value)">
                                     <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
                                     <mat-datepicker touchUi #picker3></mat-datepicker>
                                 </mat-form-field>
@@ -97,7 +100,8 @@
                             <div class="col-12 col-md-6 col-lg-5 offset-lg-1 d-flex align-items-center">
                                 <mat-form-field class="w-100">
                                     <mat-label>Target Date</mat-label>
-                                    <input #virtualTargetDate matInput [matDatepicker]="picker4" formControlName="date">
+                                    <input #virtualTargetDate matInput [matDatepicker]="picker4" formControlName="date"
+                                        (blur)="updateVirtualTargetDate(virtualTargetDate.value, virtualTargetTime.value)">
                                     <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
                                     <mat-datepicker touchUi #picker4></mat-datepicker>
                                 </mat-form-field>
@@ -121,23 +125,24 @@
 
         <div class="container-fluid">
 
-            <div class="row justify-content-center mt-3 mb-5">
-
-                <div class="col-auto mt-5 mb-4">
-                    <button (click)="calculateSpeedFactor()" mat-raised-button color="primary">Calculate</button>
-                </div>
-
-                <div class="w-100"></div>
+            <div class="row justify-content-center mt-4 mb-5 pb-3">
 
                 <div class="col-auto d-flex justify-content-center">
-                    <span class="speed-factor-result text-center mb-4">Speed Factor: {{ speedFactor }}</span>
+                    <span class="factor-result-heading text-center">Speed Factor:
+                        <span class="factor-result">{{ speedFactor }}</span>
+                    </span>
+                </div>
+
+                <div class="w-100 mt-3 mb-3"></div>
+
+                <div class="col-auto">
+                    <button class="btn-clipboard" mat-raised-button color="primary"
+                        (click)="copyToClipboard(speedFactor.toString())">Copy to Clipboard</button>
                 </div>
 
             </div>
 
         <div>
-
-        <!-- <p class="py-3">{{ speedFactorForm.value | json }}</p> -->
 
     </div>
 </div>
