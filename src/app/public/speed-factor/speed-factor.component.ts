@@ -58,22 +58,11 @@ export class SpeedFactorComponent implements OnInit, OnDestroy {
 
   }
 
-  calculateSpeedFactor() {
-
-    let realTimeDuration = this.timeDiffInMinutes(
-      this.speedFactorForm.value["real_start"]["date"],
-      this.speedFactorForm.value["real_end"]["date"]
-    );
-
-    let virtualTimeDuration = this.timeDiffInMinutes(
-      this.speedFactorForm.value["virtual_start"]["date"],
-      this.speedFactorForm.value["virtual_target"]["date"]
-    );
-
-    this.speedFactor = this.round(virtualTimeDuration/realTimeDuration, 6);
+  ngOnDestroy() {
+    this.speedFactorForm = null;
   }
 
-  // Methods to update time values -----------------------------------
+  // ---------------------- Update Date & Time Values ----------------------
 
   updateRealStartDate(dateInput: Date, timeInput: String) {
 
@@ -153,9 +142,52 @@ export class SpeedFactorComponent implements OnInit, OnDestroy {
     this.calculateSpeedFactor();
   }
 
-  ngOnDestroy() {
-    this.speedFactorForm = null;
+  // ------------------------- Speed Factor Calculations -------------------------
+
+  calculateSpeedFactor() {
+
+    let realTimeDuration = this.timeDiffInMinutes(
+      this.speedFactorForm.value["real_start"]["date"],
+      this.speedFactorForm.value["real_end"]["date"]
+    );
+
+    let virtualTimeDuration = this.timeDiffInMinutes(
+      this.speedFactorForm.value["virtual_start"]["date"],
+      this.speedFactorForm.value["virtual_target"]["date"]
+    );
+
+    this.speedFactor = this.round(virtualTimeDuration/realTimeDuration, 6);
   }
+  
+  // calculateSpeedFactorManual() {
+    
+  //   this.speedFactorForm.patchValue({
+  //     real_start: {
+  //       date: this.buildDateTime(
+  //         this.speedFactorForm.value["real_start"]["date"],
+  //         this.speedFactorForm.value["real_start"]["time"])
+  //     },
+  //     real_end: {
+  //       date: this.buildDateTime(
+  //         this.speedFactorForm.value["real_end"]["date"],
+  //         this.speedFactorForm.value["real_end"]["time"])
+  //     },
+  //     virtual_start: {
+  //       date: this.buildDateTime(
+  //         this.speedFactorForm.value["virtual_start"]["date"],
+  //         this.speedFactorForm.value["virtual_start"]["time"])
+  //     },
+  //     virtual_target: {
+  //       date: this.buildDateTime(
+  //         this.speedFactorForm.value["virtual_target"]["date"],
+  //         this.speedFactorForm.value["virtual_target"]["time"])
+  //     }
+  //   });
+
+  //   this.calculateSpeedFactor();
+  // }
+
+  // ----------------------- Date Utility Methods -----------------------
 
   resetDay(day: Date) {
     day.setHours(0);
@@ -189,8 +221,10 @@ export class SpeedFactorComponent implements OnInit, OnDestroy {
     return newDate;
   }
 
-  timeDiffInMinutes(time1, time2) {
-    let milliseconds = time2 - time1;
+  // ------------------------- Utility Methods -------------------------
+
+  timeDiffInMinutes(time1: Date, time2: Date) {
+    let milliseconds = time2.getTime() - time1.getTime();
     return Math.floor(milliseconds/60000);
   }
 
