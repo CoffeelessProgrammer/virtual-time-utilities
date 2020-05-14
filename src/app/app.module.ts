@@ -10,6 +10,7 @@ import { PublicMainComponent } from './public/public-main/public-main.component'
 import { SpeedFactorComponent } from './public/speed-factor/speed-factor.component';
 import { NavigationBarComponent } from './public/layout/navigation-bar/navigation-bar.component';
 import { FooterComponent } from './public/layout/footer/footer.component';
+import { FormatFullNameComponent } from './public/format-full-name/format-full-name.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FooterComponent } from './public/layout/footer/footer.component';
     PublicMainComponent,
     SpeedFactorComponent,
     NavigationBarComponent,
-    FooterComponent
+    FooterComponent,
+    FormatFullNameComponent
   ],
   imports: [
     CoreModule,

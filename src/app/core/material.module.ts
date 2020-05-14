@@ -11,6 +11,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 /* -------------------------- Forms -------------------------- */
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 /* -------------------------- Datepicker -------------------------- */
 import { MatNativeDateModule } from '@angular/material/core';
@@ -20,7 +21,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
   exports: [
     MatToolbarModule, MatButtonModule,
     MatTableModule, MatPaginatorModule,
-    MatFormFieldModule, MatInputModule,
+    MatFormFieldModule, MatInputModule, MatSlideToggleModule,
     MatNativeDateModule, MatDatepickerModule
   ]
 })

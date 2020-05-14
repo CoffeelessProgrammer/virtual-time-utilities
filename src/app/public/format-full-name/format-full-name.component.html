@@ -1,0 +1,37 @@
+<div class="row pt-5 justify-content-center">
+
+    <div class="col-12 mb-1">
+        <h1 class="text-center"><span>Full Name Formatter</span></h1>
+        <p class="text-center">Output Format: 'Last, First Middle, Sfx.'</p>
+    </div>
+
+    <div class="col-auto my-4">
+        <mat-form-field class="">
+            <mat-label>Full Name</mat-label>
+            <input #fullName matInput type="text" (blur)="formatName(fullName.value)"
+                placeholder="E.g. John Billy Doe Jr.">
+        </mat-form-field>
+    </div>
+
+    <div class="w-100 mb-4"></div>
+
+    <div class="col-12 col-md-10 col-lg-6">
+        <p class="format-result text-center">{{ formattedName }}</p>
+    </div>
+
+    <div class="w-100 my-4"></div>
+
+    <div class="col-auto">
+        <button class="btn-clipboard" mat-raised-button color="primary"
+            (click)="copyToClipboard(formattedName)">Copy to Clipboard</button>
+    </div>
+
+    <div class="w-100 my-2"></div>
+
+    <div class="col-auto">
+        <mat-slide-toggle [formControl]="autoCopyNameToClipboard" color="primary">
+            Auto Copy Name to Clipboard
+        </mat-slide-toggle>
+    </div>
+
+</div>
