@@ -14,7 +14,7 @@ const routes: Routes = [
   {
     path: 'public', component: PublicMainComponent,
     children: [
-      { path: '', redirectTo: 'speed-factor', pathMatch: 'full' },
+      { path: '', redirectTo: 'format-name', pathMatch: 'full' },
       { path: 'speed-factor', component: SpeedFactorComponent },
       { path: 'format-name', component: FormatFullNameComponent },
       { path: 'login', component: AccessRestrictedComponent },

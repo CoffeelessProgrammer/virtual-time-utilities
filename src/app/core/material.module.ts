@@ -17,12 +17,17 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
+/* -------------------------- Miscellaneous -------------------------- */
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
   exports: [
     MatToolbarModule, MatButtonModule,
     MatTableModule, MatPaginatorModule,
     MatFormFieldModule, MatInputModule, MatSlideToggleModule,
-    MatNativeDateModule, MatDatepickerModule
+    MatNativeDateModule, MatDatepickerModule,
+    MatTabsModule, MatIconModule
   ]
 })
 export class AngularMaterialModule { }

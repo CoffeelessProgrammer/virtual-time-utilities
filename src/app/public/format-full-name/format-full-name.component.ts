@@ -12,15 +12,18 @@ export class FormatFullNameComponent implements OnInit {
 
   autoCopyNameToClipboard = new FormControl(false);
 
-  formattedName: string;
+  singleFormattedName: string;
+  multipleFormattedNames: string;
 
   constructor() { }
 
   ngOnInit() {
-    this.formattedName = "Roche, Louis George Maurice Adolphe, Jr.";
+    this.singleFormattedName = "Roche, Louis George Maurice Adolphe, Jr.";
   }
 
-  formatName(fullName: string) {
+  formatSingleName(fullName: string): string {
+
+    let formattedName: string;
 
     if(fullName != "") {
       fullName = trimWhitespace(fullName);
@@ -57,15 +60,53 @@ export class FormatFullNameComponent implements OnInit {
       }
   
       // Join name elements with spaces
-      this.formattedName = cycledNameArray.join(' ');
+      formattedName = cycledNameArray.join(' ');
 
-      if(this.autoCopyNameToClipboard.value) {
-        copyToClipboard(this.formattedName);
-      }
+      return formattedName;
     }
     
   }
 
+  formatCopySingleName(fullName: string) {
+
+    let formattedName = this.formatSingleName(fullName);
+
+    // If empty, restore default value
+    if(formattedName == null) {
+      this.singleFormattedName = "Roche, Louis George Maurice Adolphe, Jr.";
+      return;
+    }
+
+    // Else update to new formatted name
+    this.singleFormattedName = formattedName;
+
+    if(this.autoCopyNameToClipboard.value) {
+      copyToClipboard(this.singleFormattedName);
+    }
+  }
+
+  formatMultipleNames(listOfNames: string) {
+
+    let formattedNamesArray: Array<string> = Array<string>();
+
+    let namesArray = listOfNames.split('\n');
+
+    for(let i=0; i<namesArray.length; ++i) {
+      // Split on commas if any, to account for multiple names on a line
+      let shortNamesList: Array<string> = namesArray[i].split(',');
+
+      // Format each individual name and append to formatted list
+      for(let j=0; j<shortNamesList.length; ++j) {
+        formattedNamesArray.push(this.formatSingleName(shortNamesList[j]));
+      }
+    }
+
+    // console.log("Formatted:", formattedNamesArray);
+    this.multipleFormattedNames = formattedNamesArray.join('\n');
+  }
+
+  // ----------------------------- Utility Functions -----------------------------
+  
   copyToClipboard(val: string) {
 
     let selectBox = document.createElement('textarea');

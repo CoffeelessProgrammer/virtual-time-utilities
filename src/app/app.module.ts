@@ -11,6 +11,7 @@ import { SpeedFactorComponent } from './public/speed-factor/speed-factor.compone
 import { NavigationBarComponent } from './public/layout/navigation-bar/navigation-bar.component';
 import { FooterComponent } from './public/layout/footer/footer.component';
 import { FormatFullNameComponent } from './public/format-full-name/format-full-name.component';
+import { HomeComponent } from './public/home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormatFullNameComponent } from './public/format-full-name/format-full-n
     SpeedFactorComponent,
     NavigationBarComponent,
     FooterComponent,
-    FormatFullNameComponent
+    FormatFullNameComponent,
+    HomeComponent
   ],
   imports: [
     CoreModule,

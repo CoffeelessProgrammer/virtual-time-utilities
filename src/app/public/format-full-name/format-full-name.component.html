@@ -5,33 +5,78 @@
         <p class="text-center">Output Format: 'Last, First Middle, Sfx.'</p>
     </div>
 
-    <div class="col-auto my-4">
-        <mat-form-field class="">
-            <mat-label>Full Name</mat-label>
-            <input #fullName matInput type="text" (blur)="formatName(fullName.value)"
-                placeholder="E.g. John Billy Doe Jr.">
-        </mat-form-field>
-    </div>
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6 mt-3 mb-5 text-center">
+        <mat-tab-group dynamicHeight mat-align-tabs="center">
 
-    <div class="w-100 mb-4"></div>
+            <!-- ------------------------- Tab - Format Single Name ------------------------- -->
+            <mat-tab label="Single" class="container-fluid">
+                <div class="row mt-4">
+                    <div class="col">
+                        <mat-form-field class="w-75">
+                            <mat-label>Full Name</mat-label>
+                            <!-- <span matPrefix>Enter Name: &nbsp;</span> -->
+                            <input #fullName matInput type="text" (blur)="formatCopySingleName(fullName.value)"
+                                placeholder="E.g. John Billy Doe Jr.">
+                            <mat-icon matSuffix>edit</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    
+                    <div class="w-100 my-3"></div>
 
-    <div class="col-12 col-md-10 col-lg-6">
-        <p class="format-result text-center">{{ formattedName }}</p>
-    </div>
+                    <div class="col">
+                        <p class="format-result text-center">{{ singleFormattedName }}</p>
+                    </div>
 
-    <div class="w-100 my-4"></div>
+                    <div class="w-100 my-4"></div>
 
-    <div class="col-auto">
-        <button class="btn-clipboard" mat-raised-button color="primary"
-            (click)="copyToClipboard(formattedName)">Copy to Clipboard</button>
-    </div>
+                    <div class="col mt-2">
+                        <button class="btn-clipboard" mat-raised-button color="primary"
+                            (click)="copyToClipboard(singleFormattedName)">Copy to Clipboard</button>
+                    </div>
 
-    <div class="w-100 my-2"></div>
+                    <div class="w-100 my-2"></div>
 
-    <div class="col-auto">
-        <mat-slide-toggle [formControl]="autoCopyNameToClipboard" color="primary">
-            Auto Copy Name to Clipboard
-        </mat-slide-toggle>
+                    <div class="col">
+                        <mat-slide-toggle [formControl]="autoCopyNameToClipboard" color="primary">
+                            Auto Copy Name to Clipboard
+                        </mat-slide-toggle>
+                    </div>
+                </div>
+            </mat-tab>
+
+            <!-- ------------------------- Tab - Format Multiple Names ------------------------- -->
+            <mat-tab label="Multiple" class="container-fluid">
+                <div class="row mt-4">
+                    <div class="col">
+                        <mat-form-field class="w-75 mt-3">
+                            <mat-label>Enter List of Names</mat-label>
+                            <textarea #namesList matInput (blur)="formatMultipleNames(namesList.value)"
+                                rows="5"
+                                placeholder="Enter each name on separate line, e.g. &#10;&#10;neil caffrey&#10;Peter Burke Jr."></textarea>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="w-100 my-2"></div>
+
+                    <div class="col">
+                        <mat-form-field class="w-75 mt-3">
+                            <mat-label>Formatted names will appear here!</mat-label>
+                            <textarea #formattedNamesList matInput
+                                rows="5" disabled
+                                placeholder="Formatted names will appear here!">{{ multipleFormattedNames }}</textarea>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="w-100 my-2"></div>
+
+                    <div class="col">
+                        <button class="btn-clipboard" mat-raised-button color="primary"
+                            (click)="copyToClipboard(multipleFormattedNames)">Copy All to Clipboard</button>
+                    </div>
+                </div>
+            </mat-tab>
+
+        </mat-tab-group>
     </div>
 
 </div>

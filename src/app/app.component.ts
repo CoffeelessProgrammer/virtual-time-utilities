@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'virtual-time-utilities';
-  version = 'Sneaky Albatross';
+  version = 'Blushing Anemone v0.2.2';
 
   ngOnInit() {
-    console.log("Version:", this.version);
+    console.log(this.version);
   }
 }
