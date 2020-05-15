@@ -95,10 +95,17 @@ export class FormatFullNameComponent implements OnInit {
       // Split on commas if any, to account for multiple names on a line
       let shortNamesList: Array<string> = namesArray[i].split(',');
 
+      let tempFormattedName: string;
+
       // Format each individual name and append to formatted list
       for(let j=0; j<shortNamesList.length; ++j) {
-        formattedNamesArray.push(this.formatSingleName(shortNamesList[j]));
+        tempFormattedName = this.formatSingleName(shortNamesList[j]);
+
+        if(tempFormattedName != null) {
+          formattedNamesArray.push(tempFormattedName);
+        }
       }
+
     }
 
     // console.log("Formatted:", formattedNamesArray);
@@ -121,6 +128,10 @@ export class FormatFullNameComponent implements OnInit {
     selectBox.select();
     document.execCommand('copy');
     document.body.removeChild(selectBox);
+  }
+
+  resetMultipleNamesField() {    
+    this.multipleFormattedNames = null;
   }
 
 }

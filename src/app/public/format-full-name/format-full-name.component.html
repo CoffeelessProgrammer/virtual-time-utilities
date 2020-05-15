@@ -13,7 +13,7 @@
                 <div class="row mt-4">
                     <div class="col">
                         <mat-form-field class="w-75">
-                            <mat-label>Full Name</mat-label>
+                            <mat-label>Enter Full Name</mat-label>
                             <!-- <span matPrefix>Enter Name: &nbsp;</span> -->
                             <input #fullName matInput type="text" (blur)="formatCopySingleName(fullName.value)"
                                 placeholder="E.g. John Billy Doe Jr.">
@@ -36,7 +36,7 @@
 
                     <div class="w-100 my-2"></div>
 
-                    <div class="col">
+                    <div class="col mb-3">
                         <mat-slide-toggle [formControl]="autoCopyNameToClipboard" color="primary">
                             Auto Copy Name to Clipboard
                         </mat-slide-toggle>
@@ -47,31 +47,33 @@
             <!-- ------------------------- Tab - Format Multiple Names ------------------------- -->
             <mat-tab label="Multiple" class="container-fluid">
                 <div class="row mt-4">
-                    <div class="col">
-                        <mat-form-field class="w-75 mt-3">
+                    <div class="col-lg-6">
+                        <mat-form-field class="w-100 mt-3">
                             <mat-label>Enter List of Names</mat-label>
                             <textarea #namesList matInput (blur)="formatMultipleNames(namesList.value)"
-                                rows="5"
-                                placeholder="Enter each name on separate line, e.g. &#10;&#10;neil caffrey&#10;Peter Burke Jr."></textarea>
+                                rows="4"
+                                placeholder="Enter each name on separate line, e.g.&#10;&#10;neil caffrey&#10;Peter Burke Jr."></textarea>
                         </mat-form-field>
                     </div>
 
-                    <div class="w-100 my-2"></div>
+                    <!-- <div class="w-100 my-2"></div> -->
 
-                    <div class="col">
-                        <mat-form-field class="w-75 mt-3">
-                            <mat-label>Formatted names will appear here!</mat-label>
+                    <div class="col-lg-6">
+                        <mat-form-field class="w-100 mt-3">
+                            <mat-label>Click here to show formatted names</mat-label>
                             <textarea #formattedNamesList matInput
-                                rows="5" disabled
+                                rows="4" disabled 
                                 placeholder="Formatted names will appear here!">{{ multipleFormattedNames }}</textarea>
                         </mat-form-field>
                     </div>
 
-                    <div class="w-100 my-2"></div>
+                    <div class="w-100 my-4"></div>
 
-                    <div class="col">
-                        <button class="btn-clipboard" mat-raised-button color="primary"
-                            (click)="copyToClipboard(multipleFormattedNames)">Copy All to Clipboard</button>
+                    <div class="col mb-3">
+                        <button class="btn-clipboard mx-2" mat-raised-button color="primary"
+                            (click)="copyToClipboard(multipleFormattedNames)">Copy to Clipboard</button>
+                        <button class="btn-clipboard mx-2" mat-raised-button color="primary"
+                            (click)="namesList.value=''; formattedNamesList.value=''">Clear All</button>
                     </div>
                 </div>
             </mat-tab>
