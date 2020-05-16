@@ -15,7 +15,9 @@
                         <mat-form-field class="w-75">
                             <mat-label>Enter Full Name</mat-label>
                             <!-- <span matPrefix>Enter Name: &nbsp;</span> -->
-                            <input #fullName matInput type="text" (blur)="formatCopySingleName(fullName.value)"
+                            <input #fullName matInput type="text"
+                                (blur)="formatCopySingleName(fullName.value)"
+                                (keydown.enter)="focusOnElementId('btn-clipboard-1')"
                                 placeholder="E.g. John Billy Doe Jr.">
                             <mat-icon matSuffix>edit</mat-icon>
                         </mat-form-field>
@@ -30,7 +32,7 @@
                     <div class="w-100 my-4"></div>
 
                     <div class="col mt-2">
-                        <button class="btn-clipboard" mat-raised-button color="primary"
+                        <button mat-raised-button class="btn-clipboard" color="primary" id="btn-clipboard-1"
                             (click)="copyToClipboard(singleFormattedName)">Copy to Clipboard</button>
                     </div>
 
@@ -50,8 +52,8 @@
                     <div class="col-lg-6">
                         <mat-form-field class="w-100 mt-3">
                             <mat-label>Enter List of Names</mat-label>
-                            <textarea #namesList matInput (blur)="formatMultipleNames(namesList.value)"
-                                rows="4"
+                            <textarea #namesList matInput
+                                rows="4" (blur)="formatMultipleNames(namesList.value)"
                                 placeholder="Enter each name on separate line, e.g.&#10;&#10;neil caffrey&#10;Peter Burke Jr."></textarea>
                         </mat-form-field>
                     </div>
@@ -69,11 +71,15 @@
 
                     <div class="w-100 my-4"></div>
 
-                    <div class="col mb-3">
-                        <button class="btn-clipboard mx-2" mat-raised-button color="primary"
+                    <div class="col-12 mb-3">
+                        <button mat-raised-button class="btn-clipboard mx-2 d-none d-md-inline" color="primary"
                             (click)="copyToClipboard(multipleFormattedNames)">Copy to Clipboard</button>
-                        <button class="btn-clipboard mx-2" mat-raised-button color="primary"
+
+                        <button mat-raised-button class="btn-clipboard mx-2" color="primary"
                             (click)="namesList.value=''; formattedNamesList.value=''">Clear All</button>
+                        
+                        <button mat-raised-button class="btn-clipboard mx-2 d-md-none" color="primary"
+                            (click)="copyToClipboard(multipleFormattedNames)">Copy to Clipboard</button>
                     </div>
                 </div>
             </mat-tab>

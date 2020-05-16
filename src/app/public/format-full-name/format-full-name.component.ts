@@ -10,7 +10,7 @@ import { arrayCycleRight, copyToClipboard, trimWhitespace } from 'src/app/shared
 })
 export class FormatFullNameComponent implements OnInit {
 
-  autoCopyNameToClipboard = new FormControl(false);
+  autoCopyNameToClipboard = new FormControl(true);
 
   singleFormattedName: string;
   multipleFormattedNames: string;
@@ -81,6 +81,7 @@ export class FormatFullNameComponent implements OnInit {
     this.singleFormattedName = formattedName;
 
     if(this.autoCopyNameToClipboard.value) {
+      // console.log("Copying...", this.singleFormattedName);
       copyToClipboard(this.singleFormattedName);
     }
   }
@@ -130,8 +131,10 @@ export class FormatFullNameComponent implements OnInit {
     document.body.removeChild(selectBox);
   }
 
-  resetMultipleNamesField() {    
-    this.multipleFormattedNames = null;
+  focusOnElementId(elementId: string) {
+    // const element = <HTMLElement>document.querySelector("#btn-clipboard-1");
+    const element = <HTMLElement>document.getElementById(elementId);
+    element.focus();
   }
 
 }
