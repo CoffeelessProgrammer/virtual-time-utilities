@@ -1,0 +1,6 @@
+{
+    "routePath": "/public/speed-factor",
+    "title": "Speed Factor Calculator",
+    "category": "Temporal Testing",
+    "description": "Calculate the ratio of the durations between a real and virtual time period"
+}
