@@ -20,6 +20,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 /* -------------------------- Miscellaneous -------------------------- */
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
   exports: [
@@ -27,7 +29,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatTableModule, MatPaginatorModule,
     MatFormFieldModule, MatInputModule, MatSlideToggleModule,
     MatNativeDateModule, MatDatepickerModule,
-    MatTabsModule, MatIconModule
+    MatTabsModule, MatIconModule, MatCardModule
   ]
 })
 export class AngularMaterialModule { }

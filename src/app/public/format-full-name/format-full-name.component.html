@@ -2,7 +2,7 @@
 
     <div class="col-12 mb-1">
         <h1 class="text-center"><span>Full Name Formatter</span></h1>
-        <p class="text-center">Output Format: 'Last, First Middle, Sfx.'</p>
+        <p class="text-center">Input Format: 'First Middle Last Sfx.'</p>
     </div>
 
     <div class="col-12 col-sm-10 col-md-8 col-lg-6 mt-3 mb-5 text-center">
@@ -54,7 +54,7 @@
                             <mat-label>Enter List of Names</mat-label>
                             <textarea #namesList matInput
                                 rows="4" (blur)="formatMultipleNames(namesList.value)"
-                                placeholder="Enter each name on separate line, e.g.&#10;&#10;neil caffrey&#10;Peter Burke Jr."></textarea>
+                                placeholder="Enter each name on separate line, e.g.&#10;&#10;neil g caffrey&#10;Peter Burke Jr."></textarea>
                         </mat-form-field>
                     </div>
 
