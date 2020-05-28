@@ -7,6 +7,8 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 import { AngularMaterialModule } from './material.module';
 
+import { GeneralService } from './services';
+
 
 @NgModule({
   exports: [
@@ -19,6 +21,7 @@ import { AngularMaterialModule } from './material.module';
   declarations: [],
   imports: [],
   providers:[
+    GeneralService
   ]
 })
 export class CoreModule {

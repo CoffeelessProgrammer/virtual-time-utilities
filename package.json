@@ -24,14 +24,15 @@
     "@ngx-loading-bar/core": "^4.2.0",
     "@ngx-loading-bar/router": "^4.2.0",
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
+    "luxon": "^1.24.1",
     "moment": "^2.25.3",
+    "moment-timezone": "^0.5.31",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.901.1",
+    "@angular-devkit/build-angular": "^0.901.7",
     "@angular/cli": "~9.1.1",
     "@angular/compiler-cli": "~9.1.1",
     "@angular/language-service": "~9.1.1",

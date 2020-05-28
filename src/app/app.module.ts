@@ -12,6 +12,7 @@ import { NavigationBarComponent } from './public/layout/navigation-bar/navigatio
 import { FooterComponent } from './public/layout/footer/footer.component';
 import { FormatFullNameComponent } from './public/format-full-name/format-full-name.component';
 import { HomeComponent } from './public/home/home.component';
+import { TrueTimeComponent } from './public/true-time/true-time.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HomeComponent } from './public/home/home.component';
     NavigationBarComponent,
     FooterComponent,
     FormatFullNameComponent,
-    HomeComponent
+    HomeComponent,
+    TrueTimeComponent
   ],
   imports: [
     CoreModule,

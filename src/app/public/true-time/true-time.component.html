@@ -1,0 +1,20 @@
+<div class="row justify-content-center mt-5">
+    <div class="col">
+        <h1 class="text-center">World True Time</h1>
+        <p class="text-center">Current time provided by the
+            <a href="http://worldclockapi.com/" target="_blank">World Clock API</a>
+        </p>
+        <h2 class="text-center my-5">{{ trueTimeUTC}}</h2>
+    </div>
+
+    <div class="w-100 my-2"></div>
+
+    <div class="col-md-2 d-none d-md-inline">
+        <h3 class="text-md-right"><span>Eastern:</span></h3>
+        <h3 class="text-md-right"><span>Pacific:</span></h3>
+    </div>
+    <div class="col col-md-5 col-lg-4">
+        <h3 class="text-center text-md-left">{{ trueTimeEST }}</h3>
+        <h3 class="text-center text-md-left">{{ trueTimePST }}</h3>
+    </div>
+</div>
