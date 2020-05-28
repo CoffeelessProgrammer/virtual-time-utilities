@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { DateTime } from 'luxon';
+
 // import * as moment from 'moment';
 // this.trueTimePST = moment.tz(now, "America/Los_Angeles").format("dddd, MMMM Do, yyyy, h:mm A");
 
@@ -24,7 +25,7 @@ export class TrueTimeComponent implements OnInit, OnDestroy {
 
   private $generalObs: Subscription;
 
-  constructor(private generalService: GeneralService) { }
+  constructor( private generalService: GeneralService) { }
 
   ngOnInit() {
     this.updateTrueTime();
@@ -45,13 +46,21 @@ export class TrueTimeComponent implements OnInit, OnDestroy {
     // this.trueTimePST = now.setZone("America/Los_Angeles").toFormat("ff ZZZZ");
   }
 
+  updateTrueTime() {
+    let now = DateTime.local();
+
+    this.trueTimeUTC = now.setZone("utc").toLocaleString(DateTime.DATETIME_FULL);
+    this.trueTimeEST = now.toFormat("ff ZZZZ");
+    this.trueTimePST = now.setZone("America/Los_Angeles").toFormat("ff ZZZZ");
+  }
+
   ngOnDestroy() {
     if(this.$generalObs == null) return;
     
     this.$generalObs.unsubscribe();
   }
 
-  updateTrueTime() {
+  updateTrueTimeViaAPI() {
     let currentDateTime: String;
     let now: DateTime;
     
