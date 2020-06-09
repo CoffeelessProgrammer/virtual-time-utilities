@@ -10,6 +10,7 @@
 @import "assets/styles/my-reset";
 
 html, body { height: 100%; }
+
 body {
     margin: 0;
     overflow: hidden;
@@ -35,3 +36,7 @@ body {
 .bg5 {
     background-color: orchid;
 }
+
+// .mat-input-element[type="time"].datetime-reset-button {
+//     opacity: 0 !important;
+// }

@@ -9,6 +9,6 @@
         "routePath": "/public/true-time",
         "title": "World True Time",
         "category": "Temporal Testing",
-        "description": "Display the world's true time in the EST timezone via the World Clock API"
+        "description": "Display the world's true time in the Eastern Standard Timezone via Github Servers"
     }
 ]

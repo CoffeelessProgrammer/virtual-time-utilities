@@ -25,7 +25,7 @@ export class TrueTimeComponent implements OnInit, OnDestroy {
 
   private $generalObs: Subscription;
 
-  constructor( private generalService: GeneralService) { }
+  constructor( private generalService: GeneralService ) { }
 
   ngOnInit() {
     this.updateTrueTime();
@@ -50,7 +50,7 @@ export class TrueTimeComponent implements OnInit, OnDestroy {
     let now = DateTime.local();
 
     this.trueTimeUTC = now.setZone("utc").toLocaleString(DateTime.DATETIME_FULL);
-    this.trueTimeEST = now.toFormat("ff ZZZZ");
+    this.trueTimeEST = now.setZone("America/New_York").toFormat("ff ZZZZ");
     this.trueTimePST = now.setZone("America/Los_Angeles").toFormat("ff ZZZZ");
   }
 

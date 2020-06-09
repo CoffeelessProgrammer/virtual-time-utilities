@@ -18,7 +18,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-      { path: 'speed-factor', component: SpeedFactorComponent },
+      { path: 'speed-factor-hidden', component: SpeedFactorComponent },
       { path: 'true-time', component: TrueTimeComponent },
       { path: 'format-name', component: FormatFullNameComponent },
       { path: 'login', component: AccessRestrictedComponent },
