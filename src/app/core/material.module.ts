@@ -2,15 +2,16 @@ import { NgModule } from '@angular/core';
 
 /* -------------------------- Navigation Bar -------------------------- */
 import { MatToolbarModule } from '@angular/material/toolbar';
+// import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
 import { MatButtonModule } from '@angular/material/button';
 
 /* -------------------------- Tables -------------------------- */
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatLegacyTableModule as MatTableModule } from '@angular/material/legacy-table';
+import { MatLegacyPaginatorModule as MatPaginatorModule } from '@angular/material/legacy-paginator';
 
 /* -------------------------- Forms -------------------------- */
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
+import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 /* -------------------------- Datepicker -------------------------- */
