@@ -18,8 +18,7 @@ import { AngularMaterialModule } from './material.module';
   ],
   declarations: [],
   imports: [],
-  providers:[
-  ]
+  providers:[]
 })
 export class CoreModule {
 

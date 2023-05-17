@@ -129,12 +129,13 @@
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
-          "options": {}
+          "options": {
+            "baseHref": "https://coffeelessprogrammer.github.io/virtual-time-utilities/"
+          }
         }
       }
     }
   },
-  "defaultProject": "virtual-time-utilities",
   "cli": {
     "analytics": "340b91cf-ece4-44fd-bb54-560570ebb690"
   }

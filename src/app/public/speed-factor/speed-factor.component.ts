@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-speed-factor',
@@ -8,7 +8,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class SpeedFactorComponent implements OnInit, OnDestroy {
 
-  speedFactorForm: FormGroup;
+  speedFactorForm: UntypedFormGroup;
 
   speedFactor: number = 0;
 
@@ -35,22 +35,22 @@ export class SpeedFactorComponent implements OnInit, OnDestroy {
 
     // console.log("Virtual Target:", placeholderVirtualTarget);
 
-    this.speedFactorForm = new FormGroup({
-      real_start: new FormGroup({
-        date: new FormControl(today),
-        time: new FormControl('00:00')
+    this.speedFactorForm = new UntypedFormGroup({
+      real_start: new UntypedFormGroup({
+        date: new UntypedFormControl(today),
+        time: new UntypedFormControl('00:00')
       }),
-      real_end: new FormGroup({
-        date: new FormControl(tomorrow),
-        time: new FormControl('00:00')
+      real_end: new UntypedFormGroup({
+        date: new UntypedFormControl(tomorrow),
+        time: new UntypedFormControl('00:00')
       }),
-      virtual_start: new FormGroup({
-        date: new FormControl(today),
-        time: new FormControl('00:00')
+      virtual_start: new UntypedFormGroup({
+        date: new UntypedFormControl(today),
+        time: new UntypedFormControl('00:00')
       }),
-      virtual_target: new FormGroup({
-        date: new FormControl(placeholderVirtualTarget),
-        time: new FormControl('00:00')
+      virtual_target: new UntypedFormGroup({
+        date: new UntypedFormControl(placeholderVirtualTarget),
+        time: new UntypedFormControl('00:00')
       })
     });
 
