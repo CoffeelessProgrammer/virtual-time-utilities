@@ -1,6 +1,6 @@
 {
-    "routePath": "/public/speed-factor",
-    "title": "Speed Factor Calculator",
+    "routePath": "/true-time",
+    "title": "World True Time",
     "category": "Temporal Testing",
-    "description": "Calculate the ratio of the durations between a real and virtual time period"
+    "description": "Display the world's true time in the Eastern Standard Timezone"
 }

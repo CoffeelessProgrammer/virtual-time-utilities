@@ -1,20 +1,15 @@
 [
+    
     {
-        "routePath": "/public/format-name",
-        "title": "Name Formatting Tool",
-        "category": "General Utility",
-        "description": "Format a name for compatibility with Microsoft software, e.g. Skype, Outlook"
-    },
-    {
-        "routePath": "/public/speed-factor",
+        "routePath": "/speed-factor",
         "title": "Speed Factor Calculator",
         "category": "Temporal Testing",
         "description": "Calculate the ratio of the durations between a real and virtual time period"
     },
     {
-        "routePath": "/public/true-time",
-        "title": "World True Time",
-        "category": "Temporal Testing",
-        "description": "Display the world's true time in the Eastern Standard Timezone"
+        "routePath": "/format-name",
+        "title": "Name Formatting Tool",
+        "category": "General Utility",
+        "description": "Format a name for compatibility with Microsoft software, e.g. Skype, Outlook"
     }
 ]
