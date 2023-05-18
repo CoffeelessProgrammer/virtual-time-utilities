@@ -2,7 +2,7 @@
     <div class="col-12">
 
         <h1 class="text-center">Speed Factor Calculator</h1>
-        <p class="text-center mb-4">MM/DD/YYYY</p>
+        <!-- <p class="text-center mb-4">MM/DD/YYYY</p> -->
 
         <!----------------------------------------------------------------------------->
 
@@ -24,6 +24,7 @@
                                     <input #realStartDate matInput [matDatepicker]="picker1" formControlName="date"
                                         (blur)="updateRealStartDate(realStartDate.value, realStartTime.value)"
                                         (dateChange)="updateRealStartDate(realStartDate.value, realStartTime.value)">
+                                    <mat-hint>MM/DD/YYYY</mat-hint>
                                     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                                     <mat-datepicker touchUi #picker1></mat-datepicker>
                                 </mat-form-field>
@@ -96,13 +97,13 @@
                         </div>
                     </div>
 
-                    <h3 class="text-center mr-md-3 text-md-right">Virtual Target</h3>
+                    <h3 class="text-center mr-md-3 text-md-right">Virtual End</h3>
 
                     <div class="container-fluid" formGroupName="virtual_target">
                         <div class="row no-gutters">
                             <div class="col-12 col-lg-5 offset-lg-1 d-flex align-items-center">
                                 <mat-form-field class="w-100">
-                                    <mat-label>Target Date</mat-label>
+                                    <mat-label>End Date</mat-label>
                                     <input #virtualTargetDate matInput [matDatepicker]="picker4" formControlName="date"
                                         (blur)="updateVirtualTargetDate(virtualTargetDate.value, virtualTargetTime.value)"
                                         (dateChange)="updateVirtualTargetDate(virtualTargetDate.value, virtualTargetTime.value)">
@@ -113,7 +114,7 @@
             
                             <div class="col-12 col-lg-5 offset-lg-1 d-flex align-items-center">
                                 <mat-form-field class="w-100">
-                                    <mat-label>Target Time</mat-label>
+                                    <mat-label>End Time</mat-label>
                                     <input #virtualTargetTime matInput type="time" formControlName="time"
                                         (blur)="updateVirtualTargetDate(virtualTargetDate.value, virtualTargetTime.value)">
                                     <!-- <mat-icon matSuffix class="mini-clock">schedule</mat-icon> -->

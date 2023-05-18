@@ -142,7 +142,7 @@ export class SpeedFactorComponent implements OnInit, OnDestroy {
     this.calculateSpeedFactor();
   }
 
-  // ------------------------- Speed Factor Calculations -------------------------
+  // ------------------------- Speed Factor Calculation -------------------------
 
   calculateSpeedFactor() {
 

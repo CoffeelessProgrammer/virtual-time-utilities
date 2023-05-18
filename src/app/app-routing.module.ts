@@ -12,10 +12,8 @@ import { AccessRestrictedComponent } from './shared/components';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'public', pathMatch: 'full' },
   {
-    path: 'public', component: PublicMainComponent,
-    children: [
+    path: '', component: PublicMainComponent, children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'speed-factor', component: SpeedFactorComponent },
