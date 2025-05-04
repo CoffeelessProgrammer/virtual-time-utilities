@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "virtual-time-utilities:build"
+            "buildTarget": "virtual-time-utilities:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "virtual-time-utilities:build:production"
+              "buildTarget": "virtual-time-utilities:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "virtual-time-utilities:build"
+            "buildTarget": "virtual-time-utilities:build"
           }
         },
         "test": {
