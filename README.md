@@ -3,8 +3,8 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 
 ```cmd
-ng update @angular/core@18 @angular/cli@18
-ng update @angular/material@18
+ng update @angular/core@19 @angular/cli@19
+ng update @angular/material@19
 ```
 
 ## Development server

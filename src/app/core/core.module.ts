@@ -1,6 +1,6 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
@@ -13,7 +13,6 @@ import { GeneralService } from './services';
 @NgModule({
   exports: [
     BrowserModule,
-    HttpClientModule,
     LoadingBarRouterModule,
     BrowserAnimationsModule,
     AngularMaterialModule
@@ -21,11 +20,11 @@ import { GeneralService } from './services';
   declarations: [],
   imports: [],
   providers:[
-    GeneralService
+    GeneralService,
+    provideHttpClient()
   ]
 })
 export class CoreModule {
-
   constructor(@Optional() @SkipSelf() core:CoreModule ){
     if (core) {
         throw new Error("Import core module ONLY in the root module")
