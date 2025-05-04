@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins";
@@ -6,6 +7,14 @@
 @import "node_modules/bootstrap/scss/reboot";
 @import "node_modules/bootstrap/scss/grid";
 @import "node_modules/bootstrap/scss/utilities";
+
+// @use "bootstrap/scss/variables";
+// @use "bootstrap/scss/functions";
+// @use "bootstrap/scss/mixins";
+
+// @use "bootstrap/scss/reboot";
+// @use "bootstrap/scss/grid";
+// @use "bootstrap/scss/utilities";
 
 @import "assets/styles/my-reset";
 

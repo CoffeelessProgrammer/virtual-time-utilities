@@ -4,9 +4,10 @@ import { FormControl } from '@angular/forms';
 import { arrayCycleRight, copyToClipboard, trimWhitespace } from 'src/app/shared/utility';
 
 @Component({
-  selector: 'app-format-full-name',
-  templateUrl: './format-full-name.component.html',
-  styleUrls: ['./format-full-name.component.scss']
+    selector: 'app-format-full-name',
+    templateUrl: './format-full-name.component.html',
+    styleUrls: ['./format-full-name.component.scss'],
+    standalone: false
 })
 export class FormatFullNameComponent implements OnInit {
 

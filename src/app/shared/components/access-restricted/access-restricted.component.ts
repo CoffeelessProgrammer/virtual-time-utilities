@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-access-restricted',
-  templateUrl: './access-restricted.component.html',
-  styleUrls: ['./access-restricted.component.scss']
+    selector: 'app-access-restricted',
+    templateUrl: './access-restricted.component.html',
+    styleUrls: ['./access-restricted.component.scss'],
+    standalone: false
 })
 export class AccessRestrictedComponent implements OnInit {
 

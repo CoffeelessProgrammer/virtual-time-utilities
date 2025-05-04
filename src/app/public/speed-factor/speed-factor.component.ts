@@ -2,9 +2,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-speed-factor',
-  templateUrl: './speed-factor.component.html',
-  styleUrls: ['./speed-factor.component.scss']
+    selector: 'app-speed-factor',
+    templateUrl: './speed-factor.component.html',
+    styleUrls: ['./speed-factor.component.scss'],
+    standalone: false
 })
 export class SpeedFactorComponent implements OnInit, OnDestroy {
 

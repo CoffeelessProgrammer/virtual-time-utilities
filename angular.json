@@ -17,9 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": {
-              "base": "dist/virtual-time-utilities"
-            },
+            "outputPath": "dist/virtual-time-utilities",
             "index": "src/index.html",
             "polyfills": [
               "src/polyfills.ts"
@@ -134,7 +132,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "https://coffeelessprogrammer.github.io/virtual-time-utilities/"
+            "baseHref": "/virtual-time-utilities/"
           }
         }
       }

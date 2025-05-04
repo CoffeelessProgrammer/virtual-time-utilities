@@ -12,9 +12,10 @@ import { GeneralService } from 'src/app/core/services';
 // this.trueTimeEST = dateFormat(new Date(isoDateString), "dddd, mmmm dS, yyyy, h:MM TT");
 
 @Component({
-  selector: 'app-true-time',
-  templateUrl: './true-time.component.html',
-  styleUrls: ['./true-time.component.scss']
+    selector: 'app-true-time',
+    templateUrl: './true-time.component.html',
+    styleUrls: ['./true-time.component.scss'],
+    standalone: false
 })
 export class TrueTimeComponent implements OnInit, OnDestroy {
 

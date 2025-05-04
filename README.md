@@ -3,8 +3,10 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 
 ```cmd
-ng update @angular/core@19 @angular/cli@19
-ng update @angular/material@19
+ng update @angular/core@20 @angular/cli@20
+ng update @angular/material@20
+
+ng deploy --repo=https://github.com/CoffeelessProgrammer/virtual-time-utilities.git
 ```
 
 ## Development server

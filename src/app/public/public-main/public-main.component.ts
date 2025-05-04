@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-public-main',
-  templateUrl: './public-main.component.html',
-  styleUrls: ['./public-main.component.scss']
+    selector: 'app-public-main',
+    templateUrl: './public-main.component.html',
+    styleUrls: ['./public-main.component.scss'],
+    standalone: false
 })
 export class PublicMainComponent implements OnInit {
 
